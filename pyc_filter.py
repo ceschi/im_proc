@@ -60,7 +60,7 @@ dest_path = join(wd, 'selected_frames')
 
 start_loop = timer.time()
 
-for i in pbar(photo_files):    
+for i in photo_files:    
     img = plt.imread(i)
     thresh = np.mean(img, axis = 2).mean()
     
