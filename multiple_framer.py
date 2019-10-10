@@ -34,8 +34,11 @@ for i in files_list:
             image = cv2.add(image,np.array([65.0]))
             # operate on the frame
             '''
+            # ImageEnhance has better outcome,
+            # but does not take cv2 images
+            # as input: needs workaround
             img = Image.open(image)
-            enhancebright = ImageBEnhance.Brightness(img)
+            enhancebright = ImageEnhance.Brightness(img)
             img_bri = enhancebright.enhance(4)
             final_img = img_bri
             final_img.
@@ -47,7 +50,7 @@ for i in files_list:
                 break
                 
             tot_frames += 1
-            
+    tot_frames = 1
     tot_files += 1
 
 print('DONE! Processed %d files.' % tot_files)
