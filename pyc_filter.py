@@ -41,7 +41,7 @@ wd = os.getcwd()
 
 photo_files = [i for i in os.listdir(wd) if os.path.isfile(join( wd, i ) )]
 photo_files.remove('pyc_filter.py')
-photo_files.remove('README.md')
+# photo_files.remove('README.md')
 
 
 # now create apposite dir if
@@ -61,7 +61,8 @@ dest_path = join(wd, 'selected_frames')
 
 start_loop = timer.time()
 
-for i in progressbar.progressbar.ProgressBar(photo_files):    
+# for i in progressbar.progressbar.ProgressBar(photo_files):
+for i in photo_files:
     img = plt.imread(i)
     thresh = np.mean(img, axis = 2).mean()
     
