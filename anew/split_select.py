@@ -24,7 +24,7 @@ if os.path.isdir(frms):
 else:
     os.mkdir(frms)
 
-slct = join(wd,'_selected_frames')
+slct = join(wd, name + '_selected_frames')
 if os.path.isdir(slct):
     print('\nFolder for selected frames already present.')
 else:
@@ -32,6 +32,8 @@ else:
     
 
 # Part I: split the video in frames
+
+all_1 = time.time()
 
 # open conn to video
 video_cap = cv2.VideoCapture(video_file)
@@ -70,3 +72,7 @@ select_2 = time.time()
 
 print('\nSelection with %d threshold done. It took %d seconds, filtered %d files out of %d.' %
      (tol, round(select_2-select_1), len(selected), len(frames_list)))
+
+all_2 = time.time()
+
+print('\nIt all took %d seconds.' % (round(all_2-all_1)))
